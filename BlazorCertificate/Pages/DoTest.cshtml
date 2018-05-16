@@ -1,0 +1,66 @@
+﻿@page "/teste"
+
+<h1>@questions.ElementAt(index).QuestionTitle</h1>
+
+<p><input type="radio" name="answer" value="1"> @questions.ElementAt(index).Answer1</p>
+<p><input type="radio" name="answer" value="2"> @questions.ElementAt(index).Answer2</p>
+<p><input type="radio" name="answer" value="3"> @questions.ElementAt(index).Answer3</p>
+<p><input type="radio" name="answer" value="4"> @questions.ElementAt(index).Answer4</p>
+
+<button class="btn btn-primary" onclick="@NextQuestion">Responder</button>
+
+@functions {
+
+    int index = 0;
+
+
+    // Todo: Cosultar uma API no lugar desse fake data
+    List<Question> questions = new List<Question>() {
+            new Question
+            {
+                Id = 1,
+                QuestionTitle = "Quem eh o criador do Blazor?",
+                Answer1 = "Bill Gates",
+                Answer2 = "Steve Sanderson",
+                Answer3 = "Eduardo Pires",
+                Answer4 = "Elon Musk",
+                SourceUrl = "https://blazor.net/",
+            },
+            new Question
+            {
+                Id = 1,
+                QuestionTitle = "Qual o objetivo do Blazor?",
+                Answer1 = "Jogos",
+                Answer2 = "Aplicações web",
+                Answer3 = "Cliente de Banco de dados",
+                Answer4 = "Transmissão via satélite",
+                SourceUrl = "https://blazor.net/",
+            },
+            new Question
+            {
+                Id = 1,
+                QuestionTitle = "Em que estágio se encontra Blazor?",
+                Answer1 = "Projeto caseiro",
+                Answer2 = "Projeto experimental oficial MS",
+                Answer3 = "Release Candidate",
+                Answer4 = "Production Stable",
+                SourceUrl = "https://blazor.net/",
+            }
+        };
+
+    class Question
+    {
+        public int Id { get; set; }
+        public string QuestionTitle { get; set; }
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Answer4 { get; set; }
+        public string SourceUrl { get; set; }
+    }
+
+    void NextQuestion()
+    {
+        index++;
+    }
+}
