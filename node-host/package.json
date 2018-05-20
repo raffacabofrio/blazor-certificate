@@ -1,0 +1,14 @@
+{
+  "name": "node-host",
+  "version": "1.0.0",
+  "description": "- É possível hospedar um app Blazor em qualquer server?\r - Blazor roda mesmo apenas no lado do cliente?\r - Como eh a estrutura física e virtual de pastas?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
