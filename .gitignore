@@ -32,6 +32,8 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# Blazor app distribution files
+blazor-deploy
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
