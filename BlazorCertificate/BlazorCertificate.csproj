@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <BlazorGenerate Remove="Pages\DiarioLista.cshtml" />
+    <BlazorGenerate Remove="Pages\Diary.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <BlazorGenerate Remove="Pages\Roteiro.cshtml" />
+    <BlazorGenerate Remove="Pages\StudyGuide.cshtml" />
   </ItemGroup>
 
 </Project>
