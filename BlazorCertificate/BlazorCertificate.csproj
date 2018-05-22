@@ -13,4 +13,16 @@
     <DotNetCliToolReference Include="Microsoft.AspNetCore.Blazor.Cli" Version="0.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\Diario - Copy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\DiarioLista.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\Roteiro.cshtml" />
+  </ItemGroup>
+
 </Project>

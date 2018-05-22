@@ -18,11 +18,11 @@
 
 @functions {
 
-int index = 0;
+    int index = 0;
 
 
-// Todo: Cosultar uma API no lugar desse fake data
-List<Question> questions = new List<Question>() {
+    // Todo: Cosultar uma API no lugar desse fake data
+    List<Question> questions = new List<Question>() {
     new Question
     {
         Id = 1,
@@ -55,25 +55,26 @@ List<Question> questions = new List<Question>() {
     }
 };
 
-class Question
-{
-    public int Id { get; set; }
-    public string QuestionTitle { get; set; }
-    public string Answer1 { get; set; }
-    public string Answer2 { get; set; }
-    public string Answer3 { get; set; }
-    public string Answer4 { get; set; }
-    public string SourceUrl { get; set; }
-}
-
-void NextQuestion()
-{
-    if (index == questions.Count - 1)
+    class Question
     {
-        UriHelper.NavigateTo("/meu-certificado");
-        return;
+        public int Id { get; set; }
+        public string QuestionTitle { get; set; }
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Answer4 { get; set; }
+        public string SourceUrl { get; set; }
     }
 
-    index++;
-}
+    void NextQuestion()
+    {
+        if (index == questions.Count - 1)
+        {
+            // equivalente ao javascript: window.location = "/meu-certificado"
+            UriHelper.NavigateTo("/meu-certificado");
+            return;
+        }
+
+        index++;
+    }
 }
