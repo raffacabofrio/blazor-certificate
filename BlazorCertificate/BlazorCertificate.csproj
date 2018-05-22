@@ -25,4 +25,8 @@
     <BlazorGenerate Remove="Pages\StudyGuide.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorCertificate.Shared\BlazorCertificate.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

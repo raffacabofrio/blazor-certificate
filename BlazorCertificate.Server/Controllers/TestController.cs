@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlazorCertificate.Server.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class TestController : Controller
     {
         // GET api/values
         [HttpGet]

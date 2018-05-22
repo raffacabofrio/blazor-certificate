@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlazorCertificate.Shared\BlazorCertificate.Shared.csproj" />
     <ProjectReference Include="..\BlazorCertificate\BlazorCertificate.csproj" />
   </ItemGroup>
 
