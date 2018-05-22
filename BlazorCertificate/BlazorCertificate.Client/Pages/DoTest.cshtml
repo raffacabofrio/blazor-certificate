@@ -1,0 +1,73 @@
+﻿@using BlazorCertificate.Shared
+@page "/teste"
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inject HttpClient Http
+
+@if (state == "loading")
+{
+    <h1>Carregando questões...</h1>
+    <img src="images/loading.gif" /><br />
+
+    <p>//TODO: preservar estado.</p>
+}
+
+@if (state == "ready")
+{
+    <h1>@questions.ElementAt(index).QuestionTitle</h1>
+
+    <p><input type="radio" name="answer" value="1"> @questions.ElementAt(index).Answer1</p>
+    <p><input type="radio" name="answer" value="2"> @questions.ElementAt(index).Answer2</p>
+    <p><input type="radio" name="answer" value="3"> @questions.ElementAt(index).Answer3</p>
+    <p><input type="radio" name="answer" value="4"> @questions.ElementAt(index).Answer4</p>
+
+    <button class="btn btn-primary" onclick="@NextQuestion">Responder</button>
+
+    <p></p>
+    <p>
+        Não sabe? Tudo bem, o objetivo aqui é aprender. Material de estudo sobre esse pergunta.<br />
+        <a href="@questions.ElementAt(index).SourceUrl" target="_blank">@questions.ElementAt(index).SourceUrl</a>
+    </p>
+}
+
+@if (state == "error")
+{
+    <h1>Ocorreu um erro :/</h1>
+    <p>//TODO: Mensagem amigável de erro.</p>
+}
+
+
+
+@functions {
+
+int index = 0;
+string state = "loading";
+
+
+// Todo: Cosultar uma API no lugar desse fake data
+List<Question> questions = new List<Question>();
+
+protected override async Task OnInitAsync()
+{
+    try
+    {
+        questions = await Http.GetJsonAsync<List<Question>>("/api/test");
+        state = "ready";
+    }
+    catch (Exception e)
+    {
+        state = "error";
+    }
+}
+
+void NextQuestion()
+{
+    if (index == questions.Count - 1)
+    {
+        // equivalente ao javascript: window.location = "/meu-certificado"
+        UriHelper.NavigateTo("/meu-certificado");
+        return;
+    }
+
+    index++;
+}
+}
