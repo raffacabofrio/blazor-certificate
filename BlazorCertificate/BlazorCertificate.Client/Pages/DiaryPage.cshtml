@@ -1,0 +1,55 @@
+﻿@using BlazorCertificate.Shared
+@page "/diario"
+
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inject HttpClient Http
+
+<h1>Diário do Grupo</h1>
+
+<p>
+    Saiba tudo que rolou no grupo com esse resumo diário.<br />
+
+    Material bruto aqui. Pra estudar pra prova o mais indicado eh o <a href="/roteiro">ROTEIRO OFICIAL</a>.
+
+</p>
+
+@if (state == "loading")
+{
+    <p>Carregando questões...</p>
+    <img src="images/loading.gif" /><br />
+}
+
+@if (state == "ready")
+{
+    <ul>
+        @foreach (Diary dia in diario)
+        {
+            <li>
+                <a href="#">@dia.Title</a><br />
+                Introdução ao Blazor
+            </li>
+        }
+    </ul>
+
+    <p>//TODO: ao clicar no dia, mostrar detalhe num </p>
+}
+
+
+
+@functions {
+string state = "loading";
+List<Diary> diario = new List<Diary>();
+
+protected override async Task OnInitAsync()
+{
+    try
+    {
+        diario = await Http.GetJsonAsync<List<Diary>>("/api/diary");
+        state = "ready";
+    }
+    catch (Exception e)
+    {
+        state = "error";
+    }
+}
+}
