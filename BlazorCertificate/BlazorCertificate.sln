@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCertificate.Server", "BlazorCertificate.Server\BlazorCertificate.Server.csproj", "{39134D7C-A15D-4DFF-BB03-EF12FECD69BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCertificate.Server", "BlazorCertificate.Server\BlazorCertificate.Server.csproj", "{39134D7C-A15D-4DFF-BB03-EF12FECD69BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCertificate.Client", "BlazorCertificate.Client\BlazorCertificate.Client.csproj", "{55009709-C7B9-4182-9F7A-78EB5B421373}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCertificate.Client", "BlazorCertificate.Client\BlazorCertificate.Client.csproj", "{55009709-C7B9-4182-9F7A-78EB5B421373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCertificate.Shared", "BlazorCertificate.Shared\BlazorCertificate.Shared.csproj", "{F0C34AAB-2750-4261-8C73-6C53F9A785AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCertificate.Shared", "BlazorCertificate.Shared\BlazorCertificate.Shared.csproj", "{F0C34AAB-2750-4261-8C73-6C53F9A785AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

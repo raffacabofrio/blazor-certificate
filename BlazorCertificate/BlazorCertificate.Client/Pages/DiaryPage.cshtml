@@ -1,4 +1,6 @@
 ﻿@using BlazorCertificate.Shared
+@using Microsoft.AspNetCore.Blazor.Browser.Interop
+
 @page "/diario"
 
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
@@ -25,20 +27,48 @@
         @foreach (Diary dia in diario)
         {
             <li>
-                <a href="#">@dia.Title</a><br />
-                Introdução ao Blazor
+                <button class="btn btn-link" onclick="@(() => showDiary(dia) )">@dia.Title</button><br />
             </li>
         }
     </ul>
 
-    <p>//TODO: ao clicar no dia, mostrar detalhe num </p>
+
+    <!-- Modal -->
+    <div class="modal fade" id="diaryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">@diaSelecionado.Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="diaryModalBody_destination">
+                    Carregando...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:none" id="diaryModalBody_source">
+        @diaSelecionado.Body
+    </div>
+
 }
 
+<div id="#div_html">@hello</div>
 
 
 @functions {
+
 string state = "loading";
 List<Diary> diario = new List<Diary>();
+Diary diaSelecionado = new Diary();
+
+string hello = "<h1>HELLO WORLD</h1>";
 
 protected override async Task OnInitAsync()
 {
@@ -52,4 +82,11 @@ protected override async Task OnInitAsync()
         state = "error";
     }
 }
+
+void showDiary(Diary dia)
+{
+    diaSelecionado = dia;
+    RegisteredFunction.Invoke<bool>("open_modal");
+}
+
 }
